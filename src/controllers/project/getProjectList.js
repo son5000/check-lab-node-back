@@ -6,7 +6,7 @@ export async function getProjectList(req, res) {
     if (!userId) return res.status(400).json({ message: "userId가 없습니다." });
 
     const sql =
-      "SELECT * FROM project WHERE creator_id = ? ORDER BY created_at DESC";
+      "SELECT * FROM project WHERE user_id = ? ORDER BY created_at DESC";
     const [rows] = await db.execute(sql, [userId]);
 
     res.status(200).json(rows);

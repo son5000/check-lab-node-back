@@ -1,7 +1,7 @@
 import db from "../../../db/index.js";
 import { v4 as uuidv4 } from "uuid";
 
-export async function createProject(req, res) {
+export async function postCreateProject(req, res) {
   try {
     const {
       project_name,
