@@ -34,7 +34,7 @@ export const postFileUpload = [
       form.append("metadata", metadata);
 
       // Python 서버로 전송
-      const response = await fetch("http://your-python-server:8000/upload", {
+      const response = await fetch("http://your-python-server:8000/upload-ud", {
         method: "POST",
         body: form,
         headers: form.getHeaders(),

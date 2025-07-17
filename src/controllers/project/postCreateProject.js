@@ -10,7 +10,7 @@ export async function postCreateProject(req, res) {
       period_end,
       contractor,
       purpose,
-      creator_id,
+      user_id,
     } = req.body;
 
     if (
@@ -20,7 +20,7 @@ export async function postCreateProject(req, res) {
       !period_end ||
       !contractor ||
       !purpose ||
-      !creator_id
+      !user_id
     ) {
       return res.status(400).json({ message: "모든 항목을 입력해 주세요." });
     }
@@ -30,7 +30,7 @@ export async function postCreateProject(req, res) {
     const sql = `
       INSERT INTO project (
         id, project_name, contract_name, period_start,
-        period_end, contractor, purpose, creator_id
+        period_end, contractor, purpose, user_id
       )
       VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     `;
@@ -43,7 +43,7 @@ export async function postCreateProject(req, res) {
       period_end,
       contractor,
       purpose,
-      creator_id,
+      user_id,
     ]);
 
     res.status(201).json({
